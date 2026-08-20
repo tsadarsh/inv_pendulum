@@ -18,28 +18,28 @@
   <worldbody>
     <!-- Link holder -->
     <body name="holder" pos="0 0 0" quat="1 0 0 0" childclass="inv_pendulum">
-      <inertial pos="0.09 0.0446071 0.0436663" mass="3.41032" fullinertia="0.00751063 0.0138146 0.0153154 0 -0 8.48577e-06"/>
+      <inertial pos="0.09 0.0450675 0.0435425" mass="3.34493" fullinertia="0.00723064 0.0137955 0.0150381 -0 -0 -1.45824e-06"/>
       <!-- Part holder -->
       <geom type="mesh" class="visual" pos="-0.01 -0.005 0" quat="1 0 0 0" mesh="holder" material="holder_material"/>
       <geom type="mesh" class="collision" pos="-0.01 -0.005 0" quat="1 0 0 0" mesh="holder" material="holder_material"/>
       <!-- Part pin -->
-      <geom type="mesh" class="visual" pos="0.14 -0.005 -0.05" quat="0.707107 -0 -0.707107 0" mesh="pin" material="pin_material"/>
-      <geom type="mesh" class="collision" pos="0.14 -0.005 -0.05" quat="0.707107 -0 -0.707107 0" mesh="pin" material="pin_material"/>
+      <geom type="mesh" class="visual" pos="0.14 -0.005 -0.05" quat="0.707107 -0 -0.707107 -0" mesh="pin" material="pin_material"/>
+      <geom type="mesh" class="collision" pos="0.14 -0.005 -0.05" quat="0.707107 -0 -0.707107 -0" mesh="pin" material="pin_material"/>
       <!-- Link pendulum -->
-      <body name="pendulum" pos="0.09 0.045 0.05" quat="0.701449 0.701449 0.0892703 -0.0892703">
+      <body name="pendulum" pos="0.09 0.045 0.05" quat="0.707107 0.707107 -0 -0">
         <!-- Joint from holder to pendulum -->
         <joint axis="0 0 1" name="pend_pin" type="hinge" range="-50 50"/>
-        <inertial pos="7.75e-10 0.449003 -1.483e-09" mass="4.92393" fullinertia="0.0646529 0.0177306 0.0646542 1.431e-09 -8.64e-10 -2.957e-09"/>
+        <inertial pos="1.94e-10 0.945544 -3.57e-10" mass="4.70252" fullinertia="0.120567 0.0176412 0.120567 7.56e-10 -1.32e-10 -1.42e-09"/>
         <!-- Part pendulum -->
-        <geom type="mesh" class="visual" pos="-0 -0.02 0" quat="0.707107 -0.707107 0 0" mesh="pendulum" material="pendulum_material"/>
-        <geom type="mesh" class="collision" pos="-0 -0.02 0" quat="0.707107 -0.707107 0 0" mesh="pendulum" material="pendulum_material"/>
+        <geom type="mesh" class="visual" pos="0 -0.02 0" quat="0.707107 -0.707107 -0 0" mesh="pendulum" material="pendulum_material"/>
+        <geom type="mesh" class="collision" pos="0 -0.02 0" quat="0.707107 -0.707107 -0 0" mesh="pendulum" material="pendulum_material"/>
       </body>
     </body>
   </worldbody>
   <asset>
+    <mesh file="pendulum.stl"/>
     <mesh file="pin.stl"/>
     <mesh file="holder.stl"/>
-    <mesh file="pendulum.stl"/>
     <material name="holder_material" rgba="0.615686 0.811765 0.929412 1"/>
     <material name="pin_material" rgba="0.647059 0.647059 0.647059 1"/>
     <material name="pendulum_material" rgba="0.498039 0.498039 0.498039 1"/>
