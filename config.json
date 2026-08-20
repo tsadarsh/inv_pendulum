@@ -1,4 +1,11 @@
 {
     "url": "https://cad.onshape.com/documents/2fcf687ab196ebe2e60237ac/w/8b1b349c9f98ae2313201f43/e/1ca3b9a7be0c82e6885a79aa",
-    "output_format": "mujoco"
+    "output_format": "mujoco",
+    "joint_properties": {
+        "pend_pin": {
+            "type": "velocity",
+            "limits": [-50, 50],
+            "kv": 50
+        }
+    }
 }
