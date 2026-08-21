@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<mujoco model="inverted_pendulum_primitive">
+  <compiler angle="radian" coordinate="local"/>
+
+  <option timestep="0.002" integrator="RK4" gravity="0 0 -9.81"/>
+
+  <visual>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.8 0.8 0.8"/>
+  </visual>
+
+  <default>
+    <joint damping="0.001" frictionloss="0.001"/>
+    <geom contype="1" conaffinity="1" friction="0.7 0.1 0.1"/>
+  </default>
+
+  <worldbody>
+    <!-- Ground Track -->
+    <geom name="rail" type="box" size="2.0 0.02 0.01" pos="0 0 0" rgba="0.3 0.3 0.3 1" contype="0" conaffinity="0"/>
+
+    <!-- Cart Body -->
+    <body name="cart" pos="0 0 0">
+      <joint name="cart_slider" type="slide" axis="1 0 0" limited="true" range="-1.8 1.8"/>
+      <geom name="cart_geom" type="box" size="0.15 0.1 0.05" mass="1.0" rgba="0.2 0.6 0.8 1"/>
+
+      <!-- Inverted Pendulum Link -->
+      <!-- Placed vertically upward (+Z) so it starts upright -->
+      <body name="pole" pos="0 0 0.05">
+        <joint name="pole_hinge" type="hinge" axis="0 1 0" limited="false"/>
+        <!-- Cylinder capsule extending +0.5m upward; center of geom is at z=0.25 -->
+        <geom name="pole_geom" type="cylinder" size="0.015 0.25" pos="0 0 0.25" mass="0.1" rgba="0.9 0.2 0.2 1"/>
+        
+        <!-- Tip weight to adjust inertia/difficulty -->
+        <geom name="pole_tip" type="sphere" size="0.03" pos="0 0 0.5" mass="0.05" rgba="0.9 0.6 0.2 1"/>
+      </body>
+    </body>
+  </worldbody>
+
+<actuator>
+  <!-- ctrl values will now represent target velocity in m/s -->
+  <velocity name="cart_velocity" joint="cart_slider" kv="100" ctrlrange="-2000 2000"/>
+</actuator>
+</mujoco>
