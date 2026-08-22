@@ -45,7 +45,7 @@
     <material name="pendulum_material" rgba="0.498039 0.498039 0.498039 1"/>
   </asset>
   <actuator>
-    <velocity class="inv_pendulum" name="pend_pin" joint="pend_pin" kv="50" ctrlrange="-50 50"/>
+    <velocity class="inv_pendulum" name="pend_pin" joint="pend_pin" kv="50" ctrlrange="-5 5"/>
   </actuator>
   <equality/>
 </mujoco>
